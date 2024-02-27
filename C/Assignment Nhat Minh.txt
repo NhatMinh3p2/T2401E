@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include <math.h>
+
+void solveLinearEquation(float a, float b) {
+    if (a == 0) {
+        if (b == 0) {
+            printf("The equation has infinitely many solutions.\n");
+        } else {
+            printf("The equation has no solution.\n");
+        }
+    } else {
+        printf("The solution of the equation is: %.2f\n", -b / a);
+    }
+}
+
+void solveQuadraticEquation(float a, float b, float c) {
+    float delta = b * b - 4 * a * c;
+    if (delta < 0) {
+        printf("The equation has no real roots.\n");
+    } else if (delta == 0) {
+        printf("The equation has a double root: %.2f\n", -b / (2 * a));
+    } else {
+        printf("The equation has two distinct roots:\n");
+        printf("x1 = %.2f\n", (-b + sqrt(delta)) / (2 * a));
+        printf("x2 = %.2f\n", (-b - sqrt(delta)) / (2 * a));
+    }
+}
+
+int main() {
+    int choice;
+    float a, b, c;
+
+    printf("Choose the type of equation to solve (1: Linear, 2: Quadratic): ");
+    scanf("%d", &choice);
+
+    if (choice == 1) {
+        printf("Enter the coefficient a: ");
+        scanf("%f", &a);
+        printf("Enter the coefficient b: ");
+        scanf("%f", &b);
+        solveLinearEquation(a, b);
+    } else if (choice == 2) {
+        printf("Enter the coefficient a: ");
+        scanf("%f", &a);
+        printf("Enter the coefficient b: ");
+        scanf("%f", &b);
+        printf("Enter the coefficient c: ");
+        scanf("%f", &c);
+        solveQuadraticEquation(a, b, c);
+    } else {
+        printf("Invalid choice.\n");
+    }
+
+    return 0;
+}
