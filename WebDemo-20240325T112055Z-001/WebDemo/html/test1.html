@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Read More</title>
+<style>
+    /* Styles pour le contenu réduit */
+    .content-short {
+        max-height: 100px; /* Hauteur maximale du contenu réduit */
+        overflow: hidden; /* Masque tout le contenu qui dépasse */
+    }
+
+    /* Styles pour le lien "read more" */
+    .read-more {
+        display: block; /* Affiche le lien en tant que bloc pour le rendre cliquable sur toute sa largeur */
+        color: blue; /* Couleur du texte */
+        text-decoration: underline; /* Souligne le texte */
+        cursor: pointer; /* Change le curseur en pointeur lorsqu'il est survolé */
+    }
+
+    /* Styles pour le contenu complet */
+    .content-full {
+        display: none; /* Par défaut, le contenu complet est caché */
+    }
+
+    .expanded .content-full {
+        display: block; /* Si la classe "expanded" est appliquée, le contenu complet est affiché */
+    }
+</style>
+<script>
+    // Fonction pour basculer entre le contenu réduit et complet
+    function toggleContent() {
+        var contentShort = document.querySelector('.content-short');
+        var contentFull = document.querySelector('.content-full');
+
+        // Ajoute ou supprime la classe "expanded" pour basculer entre le contenu réduit et complet
+        contentShort.classList.toggle('expanded');
+    }
+</script>
+</head>
+<body>
+
+<div class="content-short">
+    <p>Ceci est un court contenu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut tellus nec orci blandit aliquam. Duis nec est vel sem venenatis sodales.</p>
+    <p class="content-full">Ceci est le contenu complet. Integer ut consectetur neque, non hendrerit tortor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+    <div class="read-more" onclick="toggleContent()">Read more</div>
+</div>
+
+</body>
+</html>

@@ -70,6 +70,21 @@ header{
 
 }
 
+.search-container {
+    float: right;
+}
+
+input[type=text] {
+    padding: 5px;
+    margin-top: 2px;
+    margin-right: 5px;
+    border: green;
+    font-size: 10px;
+}
+
+
+
+
 #menu-icon{
     font-size: 24px;
     cursor: pointer;
@@ -412,4 +427,3 @@ header{
         flex-direction: column;
     }
 }
-
