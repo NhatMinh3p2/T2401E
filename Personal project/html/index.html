@@ -32,62 +32,12 @@
     <section class="section_products">
         <div class="products">
             <div class="card">
-                <div class="img"><img src="../img/546019_5_500x.webp"></div> <!--add image-->
-                <div class="title">GEOX</div> <!--add title-->
-                <div class="desc">Trainers, brown<br>39</div> <!--add desc-->
+                <div class="img"><img src="#"></div>
+                <div class="title"></div>
+                <div class="desc"></div>
                 <div class="box">
-                    <div class="price">23€</div>
-                    <button class="purchase">Buy</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="img"><img src="../img/546020_5_500x.webp"></div> <!--add image-->
-                <div class="title">GEOX</div> <!--add title-->
-                <div class="desc">Trainers, gray<br>39</div> <!--add desc-->
-                <div class="box">
-                    <div class="price">23€</div>
-                    <button class="purchase">Buy</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="img"><img src="../img/550762_5_500x.webp"></div> <!--add image-->
-                <div class="title">REDSKINS</div> <!--add title-->
-                <div class="desc">Boots, black<br>36</div> <!--add desc-->
-                <div class="box">
-                    <div class="price">17€</div>
-                    <button class="purchase">Buy</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="img"><img src="../img/556129_5_500x.webp"></div> <!--add image-->
-                <div class="title">GEOX</div> <!--add title-->
-                <div class="desc">Trainers, black<br>37</div> <!--add desc-->
-                <div class="box">
-                    <div class="price">23€</div>
-                    <button class="purchase">Buy</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="img"><img src="../img/558017_5_500x.webp"></div> <!--add image-->
-                <div class="title">PRETTY LITTLE THING</div> <!--add title-->
-                <div class="desc">Court shoes, black<br>38</div> <!--add desc-->
-                <div class="box">
-                    <div class="price">14€</div>
-                    <button class="purchase">Buy</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="img"><img src="../img/C_Users_Administrateur_photo_flask_tmp2_550122_5_500x.webp"></div> <!--add image-->
-                <div class="title">ADIDAS</div> <!--add title-->
-                <div class="desc">Trainers, black<br>38.5</div> <!--add desc-->
-                <div class="box">
-                    <div class="price">25€</div>
-                    <button class="purchase">Buy</button>
+                    <div class="price"></div>
+                    <button class="purchase">BUY</button>
                 </div>
             </div>
 
@@ -104,5 +54,66 @@
         </div>
     </footer>
 
+    <script>
+        // Tableau avec 2 éléments
+        let tableau = [
+            {"img":"../img/546019_5_500x.webp",
+            "title":"GEOX",
+            "desc":"Trainers, brown<br>39",
+            "price":"23€"},
+            {"img":"../img/546020_5_500x.webp",
+            "title":"GEOX",
+            "desc":"Trainers, gray<br>39",
+            "price":"23€"},
+            {"img":"../img/550762_5_500x.webp",
+            "title":"REDSKINS",
+            "desc":"Boots, black<br>36",
+            "price":"17€"},
+            {"img":"../img/556129_5_500x.webp",
+            "title":"GEOX",
+            "desc":"Trainers, black<br>37",
+            "price":"23€"},
+            {"img":"../img/558017_5_500x.webp",
+            "title":"PRETTY LITTLE THING",
+            "desc":"Court shoes, black<br>38",
+            "price":"14€"},
+            {"img":"../img/C_Users_Administrateur_photo_flask_tmp2_550122_5_500x.webp",
+            "title":"ADIDAS",
+            "desc":"Trainers, black<br>38.5",
+            "price":"25€"}
+        ]
+        // recherche de la Card model
+        let Card=document.querySelector(".card");
+        // variable pour travailler la Card
+        let tempCard = Card;
+        // lecture de chaque élément du tableau
+        for(let i=0;i<tableau.length;i++){
+            // affiche dans la console le numéro de l'élément
+            console.log(i)
+            // si élément supérieur au premier, alors on clone la card
+            if(i>0){
+                // clonage de la card
+                tempCard = Card.cloneNode(true);
+                // insertion dans le page de la Card clonée
+                Card.insertAdjacentElement("afterend",tempCard);
+             }
+            // lecture de chaque item dans l'élément du tableau
+            Object.entries(tableau[i]).forEach(([key, value]) => {
+                // affiche dans la console chaque item de l'élément du tableau
+                console.log(key,value)
+                // remlace dans la card chaque item dans le code HTML
+                if(key==='img'){
+                    let oTemp = tempCard.querySelector(key);
+                    oTemp.src=value;
+                }else{
+                    let oTemp = tempCard.querySelector("."+key);
+                    oTemp.innerHTML=value;
+                }
+                
+            })
+    
+        }
+    
+    </script>
 </body>
 </html>
